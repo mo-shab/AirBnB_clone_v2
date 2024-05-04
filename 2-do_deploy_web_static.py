@@ -1,12 +1,14 @@
 #!/usr/bin/python3
 """  fabric script that distributes an archive to your web servers,"""
 
-from fabric.api import put, run, env
-from os.path import exists
-env.hosts = ['52.201.229.30', '100.25.205.142']
-env.user = 'ubuntu'
+
 def do_deploy(archive_path):
     """ Distributes an archive to your web servers """
+    from fabric.api import put, run, env
+    from os.path import exists
+    env.hosts = ['52.201.229.30', '100.25.205.142']
+    env.user = 'ubuntu'
+    
     if exists(archive_path) is False:
         return False
     try:
