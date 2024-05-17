@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""HBNB Module to use 2 routes"""
+"""HBNB Module to use 3 routes
+/         : Display Hello HBNB!
+/hbnb     : Display HBNBt"""
 
 from flask import Flask
 

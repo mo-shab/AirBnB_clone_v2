@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Hello world! Module for Flask"""
+"""HBNB Module to use 3 routes
+/         : Display Hello HBNB!"""
 
 from flask import Flask
 
