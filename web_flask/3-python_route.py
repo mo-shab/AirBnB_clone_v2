@@ -38,7 +38,7 @@ def python(text):
     """route to display python followed by test.
        the default value of text is 'is cool'"""
     text = text.replace('_', ' ')
-    return "python {}".format(text)
+    return "Python {}".format(text)
 
 
 if __name__ == "__main__":
