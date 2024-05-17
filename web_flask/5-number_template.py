@@ -5,10 +5,11 @@
 /c/<text> : Display C following by the value of text
 /python/<text> : Display python follwoing by the value of text.
                  default value of text is 'is cool'
-/number/<n>    : Display 'n' is a number only if 'n' is int"""
+/number/<n>    : Display 'n' is a number only if 'n' is int
+/number_template/<n> : Display HTML page only if n is int"""
 
 
-from flask import Flask
+from flask import Flask, render_template
 
 
 app = Flask(__name__)
@@ -46,6 +47,12 @@ def python(text):
 def number(n):
     """route to display 'n' is a number only if 'n' is int"""
     return "{} is a number".format(n)
+
+
+@app.route('/number_template/<int:n>', strict_slashes=False)
+def number_template(n):
+    """route to display HTML page only if n is int"""
+    return render_template("5-number.html", n=n)
 
 
 if __name__ == "__main__":
