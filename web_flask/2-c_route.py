@@ -4,6 +4,7 @@
 /hbnb     : Display HBNB
 /c/<text> : Display C following by the value of text"""
 
+
 from flask import Flask
 
 
@@ -20,6 +21,7 @@ def Hello_HBNB():
 def hbnb():
     """route to display hbnb"""
     return 'HBNB'
+
 
 @app.route('/c/<text>', strict_slashes=False)
 def c(text):
