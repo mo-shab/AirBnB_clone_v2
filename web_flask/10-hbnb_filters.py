@@ -13,15 +13,18 @@ app = Flask(__name__)
 
 
 @app.route('/hbnb_filters', strict_slashes=False)
-def hbnb_filters():
-    """display the states and cities listed in alphabetical order"""
-    states = storage.all("State")
-    amenities = storage.all("Amenity")
-    return render_template('10-hbnb_filters.html', states=states,
-                           amenities=amenities)
+def filters_list():
+    """
+        method to display html page 6-index.html
+    """
+    states = storage.all('State').values()
+    amenities = storage.all('Amenity').values()
+    return render_template(
+        "10-hbnb_filters.html",
+        states=states, amenities=amenities)
 
 
-def handle_teardown(exception):
+def handle_teardown(self):
     """
         method to handle teardown
     """
