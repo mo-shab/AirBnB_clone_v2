@@ -16,7 +16,7 @@ app = Flask(__name__)
 def states_list():
     """Function that display a list of states"""
     states = storage.all('State').values()
-    return render_template('9-states.html', states=states)
+    return render_template('9-states.html', states=states, condition="states_list")
 
 
 @app.route('/states/<id>', strict_slashes=False)
@@ -25,8 +25,8 @@ def states_list_id(id):
     states = storage.all('State').values()
     for state in states:
         if state.id == id:
-            return render_template('9-states.html', state=state)
-    return render_template('9-states.html')
+            return render_template('9-states.html', state=state, condition="states_list_id")
+    return render_template('9-states.html', condition="not_found")
 
 
 @app.teardown_appcontext
