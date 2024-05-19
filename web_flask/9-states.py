@@ -23,10 +23,14 @@ def states_list():
 def states_list_id(id):
     """Function that display a list of states"""
     states = storage.all('State').values()
-    for state in states:
-        if state.id == id:
-            return render_template('9-states.html', state_id=state.id, condition="state_id")
-    return render_template('9-states.html', condition="not_found")
+    try:
+        state_id = states[id]
+        return render_template(
+            '9-states.html',
+            state_id=state_id,
+            condition="state_id")
+    except:
+        return render_template('9-states.html', condition="not_found")
 
 
 @app.teardown_appcontext
