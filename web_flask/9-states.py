@@ -13,25 +13,13 @@ app = Flask(__name__)
 
 
 @app.route('/states', strict_slashes=False)
-def states_list():
-    """Function that display a list of states"""
-    states = storage.all('State').values()
-    return render_template('9-states.html', states=states, condition="states_list")
-
-
-@app.route('/states/<id>', strict_slashes=False)
-def states_list_id(id):
-    """Function that display a list of states"""
-    states = storage.all('State').values()
-    print(states.name)
-    try:
-        state_id = states[id]
-        return render_template(
-            '9-states.html',
-            state_id=state_id,
-            condition="state_id")
-    except:
-        return render_template('9-states.html', condition="not_found")
+@app.route('/states/<state_id>', strict_slashes=False)
+def states(state_id=None):
+    """display the states and cities listed in alphabetical order"""
+    states = storage.all("State")
+    if state_id is not None:
+        state_id = 'State.' + state_id
+    return render_template('9-states.html', states=states, state_id=state_id)
 
 
 @app.teardown_appcontext
