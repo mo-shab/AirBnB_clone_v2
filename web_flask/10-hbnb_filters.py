@@ -16,7 +16,9 @@ app = Flask(__name__)
 def hbnb_filters():
     """display the states and cities listed in alphabetical order"""
     states = storage.all("State")
+    print(states)
     amenities = storage.all("Amenity")
+    print(amenities)
     return render_template('10-hbnb_filters.html', states=states,
                            amenities=amenities)
 
