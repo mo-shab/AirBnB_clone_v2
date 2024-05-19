@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<HTML lang="en">
+<HEAD>
+    <TITLE>AIRBNB Clone</TITLE>
+</HEAD>
+<BODY>
+    <H1>State</H1>
+    <UL>
+    {% for state in states|dictsort %}
+        <LI>{{state}}</LI>
+    {% endfor %}
+    </UL>
+</BODY>
+</HTML>
