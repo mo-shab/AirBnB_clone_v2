@@ -23,7 +23,7 @@ def states_list():
 def states_list_id(id):
     """Function that display a list of states"""
     states = storage.all('State').values()
-    print(states)
+    print(states.name)
     try:
         state_id = states[id]
         return render_template(
