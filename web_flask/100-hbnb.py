@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """hbnb filter
 """
-from flask import Flask, render_template, Markup
+from flask import Flask, render_template
+from markupsafe import Markup
 from models import storage
 import sys
 app = Flask(__name__)
